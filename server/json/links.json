@@ -1,0 +1,42 @@
+[
+    {
+        "href": "/lol/news",
+        "title": "LoLLeague of Legends"
+    },
+    {
+        "href": "/dota2/news",
+        "title": "Dota 2Dota 2"
+    },
+    {
+        "href": "/csgo/news",
+        "title": "CS:GOCounter-Strike: GO"
+    },
+    {
+        "href": "/overwatch/news",
+        "title": "OverwatchOverwatch"
+    },
+    {
+        "href": "/cod/news",
+        "title": "CoDCall of Duty"
+    },
+    {
+        "href": "/smash/news",
+        "title": "SmashSuper Smash Bros."
+    },
+    {
+        "href": "/streetfighter/news",
+        "title": "Street Fighter"
+    },
+    {
+        "href": "/hots/news",
+        "title": "Heroes of the Storm"
+    },
+    {
+        "href": "/hearthstone/news",
+        "title": "Hearthstone"
+    },
+    {
+        "href": "/sc2/news",
+        "title": "StarCraft II"
+    }
+]

@@ -1,0 +1,22 @@
+{
+  "name": "3d-newsportal-angularjs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Pia",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.5.8",
+    "express": "^4.14.0",
+    "file-system": "^2.2.1",
+    "jquery": "^3.1.1",
+    "nightmare": "^2.8.1",
+    "phantom": "^3.0.2",
+    "phantomjs": "^2.1.7",
+    "webpage": "^0.3.0",
+    "yargs": "^6.3.0"
+  }
+}
