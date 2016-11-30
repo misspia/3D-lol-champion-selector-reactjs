@@ -1,16 +1,15 @@
 var jquery = require('jquery');
 var fs = require('fs');
+var module = require('./scrape');
+var links = module.links;
 var Nightmare = require('nightmare'),
   	nightmare = Nightmare();
-
 
 fs.readFile('../json/links.json', 'utf8', function (err, data) {
     if (err) throw err; 
     var obj = JSON.parse(data);
-	    for(i = 0; i < obj.length; i++){
-	    	url = "http://www.thescoreesports.com" + obj[i].href;
-	    	console.log(url);
-	    	// scrapeArticles(obj[i].href, i);
+	    for(i = 0; i < 1; i++){
+	    	scrapeArticles(obj[i].href, i);
 	    };	    	
    });
 
@@ -22,25 +21,39 @@ function scrapeArticles(path, num){
     .wait(5000)
     .screenshot('esports.png')
     .evaluate(function(){
-        return "http://www.thescoreesports.com" + path;
+        var topnews = $('.marquee'),
+            headlines = topnews.find('.marquee__navigation-tile'),
+            articleHeadlines = [];
 
-
-        // return links;
-
+          $(headlines).each(function(i, element){
+            var a = $(this).find('a');
+                headline = {
+                  link: a.attr('href'),
+                  game: a.find('.marquee__navigation-tile__meta-data').children('span').eq(0).text(),
+                  timeAgo: a.find('.marquee__navigation-tile__meta-data').children('span').eq(1).text(),
+                  title: a.find('.marquee__navigation-tile__headline').text().replace(/\\/g, '') 
+                };
+                articleHeadlines.push(headline);
+          });
+          return articleHeadlines;
     })
     .end()
     .run(function (err, nightmare) {
       if (err) return console.log(err);
       console.log(nightmare);
+      writeArticle(nightmare);
 
-      // writeLinks(nightmare);
     });
-}
+};
+
 
 
 function writeArticle(nightmare){
-    fs.writeFile('../json/links.json', JSON.stringify(nightmare, null, 4), function(error){
+    fs.writeFile('../json/articles.json', JSON.stringify(nightmare, null, 4), function(error){
         if (error) return console.log(error);
             console.log('writing complete');
     });    
 };
+
+
+

@@ -5,15 +5,15 @@ var Nightmare = require('nightmare'),
 
 
 var url = "http://www.thescoreesports.com";
+var useragent = "Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.111 Safari/537.36";
 
 var scrapeLinks = new Nightmare()
     .viewport(1000, 1000)
-    .useragent("Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.111 Safari/537.36")
+    .useragent(useragent)
     .goto(url + "/top_news")
     .wait(5000)
     .screenshot('esports.png')
-    .evaluate(function(){
-        
+    .evaluate(function(){    
         var menu = $('.site-menu__nav-section.site-menu__nav-section--leagues').find('a'),
             links = [];
         
@@ -24,16 +24,15 @@ var scrapeLinks = new Nightmare()
             };
             links.push(linkObj);
         });
-
         return links;
 
     })
     .end()
     .run(function (err, nightmare) {
       if (err) return console.log(err);
-      console.log(nightmare);
-
       writeLinks(nightmare);
+      
+      return nightmare;
     });
 
 function writeLinks(nightmare){
@@ -42,6 +41,9 @@ function writeLinks(nightmare){
             console.log('writing complete');
     });    
 };
+
+exports.links = nightmare;
+
 
 
 
