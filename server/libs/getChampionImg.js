@@ -29,11 +29,9 @@ fs.readFile(srcFilePath + '/json/allChampions.json', 'utf8', function (err, data
 			var skinID = champSkins[i].num;
 			console.log(skinID);
 			download_img(champKey, skinID, 1);
-			sleepFor(2000);
+			sleepFor(3000);
 		}
 
-		// download_img(champObj.key, 1);
-		// sleepFor(2000);
 	}    	
 });
 
@@ -59,7 +57,7 @@ function download_img(champKey, skinID, attempts) {
 		    	console.log("failed more than 3 times, not retrying");
 		    }
 		})
-		.pipe(fs.createWriteStream("./img/champ-" + champKey + ".png"));
+		.pipe(fs.createWriteStream("./img/champ-" + champKey + "_" + skinID + ".png"));
 }
 
 function sleepFor( sleepDuration ){
