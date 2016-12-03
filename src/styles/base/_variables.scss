@@ -1,0 +1,17 @@
+
+$border: solid 0.1em #000;
+$font:'Oxygen', sans-serif;
+$transition: all 0.4s;
+
+$white: #fff;
+
+@mixin circle($width) {
+	height:$width; width: $width;
+	border-radius: 50%;
+}
+@mixin rect($width, $height){
+	height: $height; width: $width;
+}
+@mixin rectMinSize($width, $height){
+	min-height: $height; min-width: $width;
+}

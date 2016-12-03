@@ -1,4 +1,18 @@
+@import url('https://fonts.googleapis.com/css?family=Oxygen:300,400,700');
+
+@import 'base/layout';
+@import 'base/variables';
+
 @import 'components/App';
+@import 'components/Card';
+
+body{
+	font-family: $font;
+	overflow:hidden;
+}
+.text{
+	text-align:center;
+}
 
 
 

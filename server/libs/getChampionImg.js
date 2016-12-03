@@ -4,7 +4,7 @@ var request = require('request');
 const EventEmitter = require('events');
 require('events').EventEmitter.defaultMaxListeners = Infinity;
 
-var srcFilePath = '../../src'
+var srcFilePath = '../../src';
 
 fs.readFile(srcFilePath + '/json/allChampions.json', 'utf8', function (err, data) {
 	if (err) throw err; 
@@ -57,7 +57,7 @@ function download_img(champKey, skinID, attempts) {
 		    	console.log("failed more than 3 times, not retrying");
 		    }
 		})
-		.pipe(fs.createWriteStream("./img/champ-" + champKey + "_" + skinID + ".png"));
+		.pipe(fs.createWriteStream( srcFilePath + "/img/champ-" + champKey + "_" + skinID + ".png"));
 }
 
 function sleepFor( sleepDuration ){

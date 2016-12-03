@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App';
-// import './App.scss';
+// import App from './components/App';
+import Card from './components/Card';
 import './styles/main.scss';
 
 ReactDOM.render(
-  <App />,
-  document.getElementById('root')
+  <Card />,
+  document.getElementById('main')
 );
 
 
