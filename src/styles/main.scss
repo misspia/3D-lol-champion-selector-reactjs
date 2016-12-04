@@ -4,14 +4,24 @@
 @import 'base/variables';
 
 @import 'components/App';
-@import 'components/Card';
+@import 'components/SelectionPanel';
+@import 'components/ChampionDisplay';
 
 body{
 	font-family: $font;
 	overflow:hidden;
+	background-image: url('../img/bg.png');
 }
 .text{
 	text-align:center;
+}
+.container-selection-panel, .container-champion-display{
+	height: 50vh;
+}
+.container-champion-display{
+	width: 100%;
+	border: solid 0.1em red;
+	
 }
 
 

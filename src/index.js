@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import DisplaySelection from './components/DisplaySelection';
+import SelectionPanel from './components/SelectionPanel';
 import './styles/main.scss';
 
 ReactDOM.render(
-  <DisplaySelection />,
+  <SelectionPanel />,
   document.getElementById('main')
 );
 
