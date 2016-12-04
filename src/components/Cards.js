@@ -1,14 +1,17 @@
 import React from 'react';
 import championsData from '../json/allChampions.json';
 
-class Card extends React.Component{
+class Cards extends React.Component{
 	constructor(){
 		super()
-		this.state = {champions: []}
+		this.state = {
+			champions: []
+		}
 	}
 	componentWillMount(){
 		this.setState({champions: championsData})
 	}
+
 	render(){
 		let champions = this.state.champions.data
 		
@@ -20,7 +23,10 @@ class Card extends React.Component{
 			const champName = champions[champ].name
 
 			championsList.push(
-				<li className="card col center align-center" key={champKey}>
+				<li className="card col center align-center" 
+					
+					key={champKey} 
+					value={champKey}>
 					<img src={champImg} alt={champKey}/>
 					<span>{champName}</span>
 				</li>
@@ -29,6 +35,7 @@ class Card extends React.Component{
 
 		return(
 			<li className="perspective-container">
+				<span>{}</span>
 				<ul className="row center" id="champ-selection">
 	       			{championsList}
 				</ul>
@@ -37,4 +44,4 @@ class Card extends React.Component{
 	}
 }
 
-export default Card;
+export default Cards;

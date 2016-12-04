@@ -1,11 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import App from './components/App';
-import Card from './components/Card';
+import DisplaySelection from './components/DisplaySelection';
 import './styles/main.scss';
 
 ReactDOM.render(
-  <Card />,
+  <DisplaySelection />,
   document.getElementById('main')
 );
 
