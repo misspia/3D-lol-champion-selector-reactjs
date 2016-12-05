@@ -38,5 +38,3 @@ class ConnectDisplayPanel extends React.Component{
 }
 
 export default ConnectDisplayPanel;
-
-// <h2>selected ID: {this.state.selectedId}</h2>

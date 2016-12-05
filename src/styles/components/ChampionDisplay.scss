@@ -1,23 +1,21 @@
-$imgSize: 8em;
+$imgSize: 4em;
 
 #champion-display{
-	border: $border;
 	background-color:#34322e;
 	color: #cbc5c1;
+	background-size:cover;
 	border-radius: 0.1em;
 	max-width: 50em;
-	min-width:30em;
+	min-width:35em;
 	height:100%;
+	text-shadow: 0.1em 0.1em 0.1em #000;
 }
 .container-img{
-	@include rect($imgSize + 2, auto);
-	// border:$border;
 	flex:1;
 } 
 .container-data{
 	flex:2;
 }
-
 .container-img img{
 	@include rect($imgSize, auto);
 }

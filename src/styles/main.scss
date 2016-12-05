@@ -3,7 +3,6 @@
 @import 'base/layout';
 @import 'base/variables';
 
-@import 'components/App';
 @import 'components/SelectionPanel';
 @import 'components/ChampionDisplay';
 
@@ -20,7 +19,7 @@ body{
 }
 .container-champion-display{
 	width: 100%;
-	border: solid 0.1em red;
+	// border: solid 0.1em red;
 	
 }
 

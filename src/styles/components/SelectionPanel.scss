@@ -1,14 +1,15 @@
 .container-selection-panel{
-	border:solid 0.1em blue;
+	// border:solid 0.1em blue;
 }
 .container-selection-panel, .perspective-container{
 	perspective: 20em;
 	
 }
 .perspective-container{
-	border: solid 0.1em red;
+	// border: solid 0.1em red;
 	transform-style: preserve-3d;
 	transform: translateY(-8em) rotateX( 40deg ) ;
+	// transform:rotateX( 40deg ) ;
 	@include rect(95%, 130%);
 	overflow:scroll;
 }
