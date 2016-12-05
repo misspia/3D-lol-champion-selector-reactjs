@@ -18,10 +18,10 @@ class SelectionPanel extends React.Component{
 		let championsList = []
 
 		for(var champ in champions){
-			const champId = champ
-			const champImg = require("../img/preview/champ-" + champions[champ].key + "_0.png");
-			const champKey = champions[champ].key
-			const champName = champions[champ].name
+			let champId = champ,
+				champImg = require("../img/preview/champ-" + champions[champ].key + "_0.png"),
+				champKey = champions[champ].key,
+				champName = champions[champ].name
 
 			championsList.push(
 				<li className="card col center align-center"
@@ -38,7 +38,6 @@ class SelectionPanel extends React.Component{
 			</ConnectDisplayPanel>
 		)
 	}
-
 }
 
 export default SelectionPanel;

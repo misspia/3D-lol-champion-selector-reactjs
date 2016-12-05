@@ -2,8 +2,11 @@
 $border: solid 0.1em #000;
 $font:'Oxygen', sans-serif;
 $transition: all 0.4s;
+$displayWidth: 40em;
+$cardOpacity: 0.7;
 
 $white: #fff;
+$bgHighlight: #16374a;
 
 @mixin circle($width) {
 	height:$width; width: $width;

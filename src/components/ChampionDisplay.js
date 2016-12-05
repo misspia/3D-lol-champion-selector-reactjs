@@ -2,6 +2,7 @@ import React from 'react';
 import championsData from '../json/allChampions.json';
 import ChampionDisplayData from './ChampionDisplayData';
 import SkinCard from './SkinCard';
+import ChampionDisplayContainer from './ChampionDisplayContainer';
 
 class ChampionDisplay extends React.Component{
 	constructor(){
@@ -15,13 +16,11 @@ class ChampionDisplay extends React.Component{
 	componentWillMount(){
 		this.setState({champions: championsData.data})
 	}
-	// shouldComponentUpdate(nextProps, nextState){
-	// 	console.log(nextProps)
-	// 	console.log(nextState)
-	// }
-	updateSkin(e){		
-		this.setState({skinId: e})
-		console.log(this.state.skinId)
+	componentWillReceiveProps(nextProps){
+		this.setState({skinId: 0})
+	}
+	updateSkin(skinId){		
+		this.setState({skinId: skinId})
 	}
 	render(){
 		let champId = this.props.champ,
@@ -42,27 +41,19 @@ class ChampionDisplay extends React.Component{
 							imgSrc={img}/>
 			)
 		}
-
-		
-		let bgImg= require("../img/splash/splash-" + champions[champId].key + "_" + this.state.skinId + ".png")
-		let displayStyle={
-			backgroundImage: "url(" + bgImg + ")"
-		}
-
 		return(
-			<ul id="champion-display" className="col center" style={displayStyle}>	
+			<ChampionDisplayContainer champKey={champions[champId].key}  skinId={this.state.skinId}>	
 				<li className="col center container-data">
-					<ChampionDisplayData champId={champId}/>
+					<ChampionDisplayData champId={champId} skinId={this.state.skinId}/>
 				</li>
-				<li className="row flex-end align-center container-img">		
-					<ul className="row">
+				<li className="row flex-start align-center skin-panel-container">		
+					<ul className="row skin-panel">
 						{skins}
 					</ul>
 				</li>			
-			</ul>
+			</ChampionDisplayContainer>
 		)
 	}
 }
 
 export default ChampionDisplay;
-

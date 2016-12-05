@@ -15,11 +15,12 @@
 }
 .card, .card img{
 	@include rect(6em, auto);
+	cursor: pointer;
 }
 
 .card{
 	position: relative;
-	opacity:0.7;
+	opacity:$cardOpacity;
 	transition:$transition;
 	span{
 		font-size:0.8em;

@@ -1,0 +1,25 @@
+$skinCardSize: 2em;
+.skin-panel-container{
+	flex:1;
+	width:45%
+}
+.skin-panel-container, .skin-panel{
+	perspective: 30em;
+	
+}
+.skin-panel{
+	transform-style: preserve-3d;
+	// transform:rotateY( 30deg );
+}
+.skin-panel img{
+	@include rect($skinCardSize, auto);
+}
+.skin-card{	
+	cursor: pointer;
+	opacity:$cardOpacity;
+	transition:$transition;
+	// transform:rotateY( 30deg ) ;
+	&:hover{
+		opacity:1;
+	}
+} 

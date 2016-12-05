@@ -5,6 +5,10 @@
 
 @import 'components/SelectionPanel';
 @import 'components/ChampionDisplay';
+@import 'components/ChampionDisplayContainer';
+@import 'components/ChampionDisplayData';
+@import 'components/SkinCard';
+
 
 body{
 	font-family: $font;

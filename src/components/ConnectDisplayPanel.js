@@ -7,7 +7,8 @@ class ConnectDisplayPanel extends React.Component{
 		super()
 		this.state = {
 			selectedId: 1,
-			champions: []
+			champions: [],
+			skin:0
 		}
 	}
 	componentWillMount(){

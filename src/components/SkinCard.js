@@ -11,7 +11,8 @@ class SkinCard extends React.Component{
 	}
 	render(){
 		return(
-			<li key={this.props.key}
+			<li className="skin-card"
+				key={this.props.key}
 				onClick={this.props.onClick}>
 				<img alt={this.props.key} src={this.props.imgSrc}/>
 			</li>
