@@ -1,0 +1,36 @@
+.stat-table{
+	// border:0.1em solid blue;
+	width:90%;
+	tr{
+		// border:0.1em solid red;
+		.label{
+			flex:1;
+			font-size:1em;
+
+			// border: solid 0.1em purple;
+		}
+		.data{
+			flex:9;
+			// border: solid 0.1em yellow;
+			span{
+				display: block;
+				height:100%;
+				background-color:#ed5564;
+				border-radius:0.1em;
+				
+			}
+			.progress{
+				overflow:hidden;
+				position:relative;
+				transition: $transition;
+			}
+			.shading{
+					display:inline-block; content:'';
+					position:absolute;
+					width:110%;
+					top:50%;
+					background-color:#db4453;
+				}
+		}
+	}
+}

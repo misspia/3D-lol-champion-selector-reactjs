@@ -1,9 +1,12 @@
 .container-data{
 	flex:2;
 }
+.title{
+	font-weight:700;
+}
 .header{
-	.title{
-		font-weight:700;
+	flex:1;
+	.title{		
 		span{
 			font-size:2.5em;
 		}
@@ -13,7 +16,18 @@
 		}	
 	}
 	.subtitle{
-		font-size: 0.8em;
-		font-weight:300;
+		font-size: 0.9em;
+		font-weight:700;
+	}
+}
+.about{
+	flex:2;
+	width:50%;
+	border-radius:0.2em;
+	padding:0.5em 0.1em 0.1em 0.5em;
+	background-color: rgba(0,0,0, 0.5);
+
+	.title ~* {
+		// flex:1;
 	}
 }

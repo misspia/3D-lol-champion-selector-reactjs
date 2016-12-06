@@ -1,13 +1,14 @@
 $skinCardSize: 2em;
 .skin-panel-container{
 	flex:1;
-	width:45%
+	width:65%
 }
 .skin-panel-container, .skin-panel{
 	perspective: 30em;
 	
 }
 .skin-panel{
+	transition:all 1s;
 	transform-style: preserve-3d;
 	// transform:rotateY( 30deg );
 }
@@ -18,6 +19,7 @@ $skinCardSize: 2em;
 	cursor: pointer;
 	opacity:$cardOpacity;
 	transition:$transition;
+	
 	// transform:rotateY( 30deg ) ;
 	&:hover{
 		opacity:1;

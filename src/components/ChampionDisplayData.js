@@ -1,5 +1,7 @@
 import React from 'react';
 import championsData from '../json/allChampions.json';
+import StatTable from './StatTable';
+import Header from './Header.js';
 
 class ChampionDisplayData extends React.Component{
 	constructor(){
@@ -15,35 +17,27 @@ class ChampionDisplayData extends React.Component{
 	}
 	render(){
 		let champId = this.props.champId,
-			skinId = this.props.skinId,
+			skinIndex = this.props.skinIndex,
 			champions = this.state.champions
 
 		let champion = {
 			key: champions[champId].key,
 			name: champions[champId].name,
 			title: champions[champId].title,
-			skinName: champions[champId].skins[skinId].name,
+			skinName: champions[champId].skins[skinIndex].name,
 			info: champions[champId].info
 		}
 		return (
-			<ul>
-				<li>{champId}</li>
-				<li>
-					<ul className="header">
-						<li className="title">
-							<span>{champion.name}</span> 
-							<small>{champion.title}</small>
-						</li>
-						<li className="subtitle">{champion.skinName}</li>
-					</ul>
+			<ul className="cover col">
+				<li className="header">
+					<Header name={champion.name} title={champion.title} skinName={champion.skinName}/>
 				</li>		
-				<li>
-					<ul>
-						<li>ATK: {champion.info.attack}</li>
-						<li>DEF: {champion.info.defense}</li>
-						<li>MAGIC: {champion.info.magic}</li>
-						<li>DIFFICULTY: {champion.info.difficulty}</li>
+				<li className="col about">
+					<span className="title">STATS</span>
+					<ul className="cover">
+						<StatTable data={champion.info}/>
 					</ul>
+					
 				</li>
 			</ul>	
 		)

@@ -8,9 +8,11 @@
 @import 'components/ChampionDisplayContainer';
 @import 'components/ChampionDisplayData';
 @import 'components/SkinCard';
+@import 'components/StatTable';
 
 
 body{
+	padding:0.5em 0;
 	font-family: $font;
 	overflow:hidden;
 	background-image: url('../img/bg.png');
@@ -23,10 +25,6 @@ body{
 }
 .container-champion-display{
 	width: 100%;
-	// border: solid 0.1em red;
-	
 }
-
-
 
 // http://hugogiraudel.com/2015/06/18/styling-react-components-in-sass/

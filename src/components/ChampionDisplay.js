@@ -9,7 +9,8 @@ class ChampionDisplay extends React.Component{
 		super()
 		this.state={
 			champions:[],
-			skinId: 0
+			skinId: 0,
+			skinIndex: 0
 		}
 		this.updateSkin = this.updateSkin.bind(this)
 	}
@@ -17,10 +18,11 @@ class ChampionDisplay extends React.Component{
 		this.setState({champions: championsData.data})
 	}
 	componentWillReceiveProps(nextProps){
-		this.setState({skinId: 0})
+		this.setState({skinId: 0, skinIndex:0})
 	}
-	updateSkin(skinId){		
-		this.setState({skinId: skinId})
+	updateSkin(skinId, index ){
+		this.state.skinIndex = index
+		this.setState({ skinId: skinId })
 	}
 	render(){
 		let champId = this.props.champ,
@@ -35,8 +37,8 @@ class ChampionDisplay extends React.Component{
 				img = require("../img/preview/champ-" + champion.key + "_" + skinId + ".png"),
 				key = champion.key + "_" + skinId
 			skins.push(
-				<SkinCard champId={champId} 
-							onClick={this.updateSkin.bind(null, skinId)}
+				<SkinCard  champId={champId} 
+							onClick={this.updateSkin.bind(null, skinId, i)}
 							key={key}
 							imgSrc={img}/>
 			)
@@ -44,7 +46,7 @@ class ChampionDisplay extends React.Component{
 		return(
 			<ChampionDisplayContainer champKey={champions[champId].key}  skinId={this.state.skinId}>	
 				<li className="col center container-data">
-					<ChampionDisplayData champId={champId} skinId={this.state.skinId}/>
+					<ChampionDisplayData champId={champId} skinIndex={this.state.skinIndex}/>
 				</li>
 				<li className="row flex-start align-center skin-panel-container">		
 					<ul className="row skin-panel">
