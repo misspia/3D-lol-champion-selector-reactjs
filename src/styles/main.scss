@@ -4,11 +4,12 @@
 @import 'base/variables';
 
 @import 'components/SelectionPanel';
-@import 'components/ChampionDisplay';
+// @import 'components/ChampionDisplay';
 @import 'components/ChampionDisplayContainer';
 @import 'components/ChampionDisplayData';
 @import 'components/SkinCard';
 @import 'components/StatTable';
+@import 'components/NavItem';
 
 
 body{
@@ -16,6 +17,7 @@ body{
 	font-family: $font;
 	overflow:hidden;
 	background-image: url('../img/bg.png');
+	background-size:cover;
 }
 .text{
 	text-align:center;

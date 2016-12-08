@@ -18,19 +18,21 @@ class SelectionPanel extends React.Component{
 		let championsList = []
 
 		for(var champ in champions){
-			let champId = champ,
-				champImg = require("../img/preview/champ-" + champions[champ].key + "_0.png"),
-				champKey = champions[champ].key,
-				champName = champions[champ].name
+			if ({}.hasOwnProperty.call(champions, champ)){
+				let champId = champ,
+					champImg = require("../img/preview/champ-" + champions[champ].key + "_0.png"),
+					champKey = champions[champ].key,
+					champName = champions[champ].name
 
-			championsList.push(
-				<li className="card col center align-center"
-					key={champKey} 
-					value={champId}>
-					<img src={champImg} alt={champKey}/>
-					<span>{champName}</span>
-				</li>
-			)
+				championsList.push(
+					<li className="card col center align-center"
+						key={champKey} 
+						value={champId}>
+						<img src={champImg} alt={champKey}/>
+						<span>{champName}</span>
+					</li>
+				)
+			}
 		}
 		return (
 			<ConnectDisplayPanel>

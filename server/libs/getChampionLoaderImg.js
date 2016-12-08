@@ -28,7 +28,6 @@ fs.readFile(srcFilePath + '/json/allChampions.json', 'utf8', function (err, data
 	}    	
 });
 
-
 var options = {
 	baseUrl: 'https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion?dataById=true&champData=all',
 	imgBaseUrl: 'http://ddragon.leagueoflegends.com/cdn/img/champion/loading/',

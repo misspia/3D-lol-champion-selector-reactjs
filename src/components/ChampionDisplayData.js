@@ -1,43 +1,50 @@
 import React from 'react';
 import championsData from '../json/allChampions.json';
-import StatTable from './StatTable';
-import Header from './Header.js';
+import Header from './ChampionDisplayData/Header.js';
+import NavItem from './ChampionDisplayData/NavItem.js';
+import StatTable from './ChampionDisplayData/StatTable';
+import Lore from './ChampionDisplayData/Lore';
+import Spells from './ChampionDisplayData/Spells';
 
 class ChampionDisplayData extends React.Component{
 	constructor(){
 		super()
 		this.state={
-			champions:[]
+			champions:[],
+			nav: 0,
+			aboutHeader:'STATS'
 		}
+		this.navState = this.navState.bind(this)
 	}
+    navState(state, aboutHeader){     
+		this.setState({nav: state, aboutHeader: aboutHeader})
+    }
 	componentWillMount(){
 		this.setState({
 			champions: championsData.data
 		})
 	}
 	render(){
-		let champId = this.props.champId,
-			skinIndex = this.props.skinIndex,
-			champions = this.state.champions
-
-		let champion = {
-			key: champions[champId].key,
-			name: champions[champId].name,
-			title: champions[champId].title,
-			skinName: champions[champId].skins[skinIndex].name,
-			info: champions[champId].info
-		}
+		let skinIndex = this.props.skinIndex,
+			champion = this.state.champions[this.props.champId]
 		return (
 			<ul className="cover col">
 				<li className="header">
-					<Header name={champion.name} title={champion.title} skinName={champion.skinName}/>
+					<Header name={champion.name} title={champion.title} skinName={champion.skins[skinIndex].name}/>
 				</li>		
-				<li className="col about">
-					<span className="title">STATS</span>
-					<ul className="cover">
-						<StatTable data={champion.info}/>
+				<li className="col center about">
+					<ul className="col about-inner">
+						<li className="row center self-center nav">
+							<NavItem onClick={this.navState.bind(null, 0, 'STATS')} label="STATS" active={(this.state.nav === 0 ? 'active' : '')}></NavItem> 
+							<NavItem onClick={this.navState.bind(null, 1, 'SPELLS')} label="SPELLS" active={(this.state.nav === 1 ? 'active' : '')}></NavItem>
+							<NavItem onClick={this.navState.bind(null, 2, 'LORE')} label="LORE" active={(this.state.nav === 2 ? 'active' : '')}></NavItem>
+						</li>
+						<span className="title self-center">{this.state.aboutHeader}</span>				
+						{this.state.nav === 0 ? <StatTable data={champion.info} subData={champion.tags}/> : null}
+						{this.state.nav === 1 ? <Spells data={champion.spells}/> : null}
+						{this.state.nav === 2 ? <Lore data={champion.lore}/> : null}
 					</ul>
-					
+						
 				</li>
 			</ul>	
 		)

@@ -1,0 +1,23 @@
+.nav-item{
+	padding: 0.2em 0;
+	border:solid 0.1em $gold;
+	font-size: 0.8em;
+	color: $gold;
+	cursor:pointer;
+	transition:$transition;
+	&:first-child{
+		border-bottom-left-radius:2em;
+		border-top-left-radius:2em;
+	}
+	&:last-child{
+		border-bottom-right-radius:2em;
+		border-top-right-radius:2em;
+	}
+	&:hover{
+		background-color: rgba(200, 164, 97, 0.2);
+	}
+	&:active, &.active{
+		background-color: darken(rgba(200, 164, 97, 0.6), 10%);
+		color: darken($gold, 15%);
+	}
+}

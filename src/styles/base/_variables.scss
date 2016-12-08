@@ -4,10 +4,12 @@ $font:'Oxygen', sans-serif;
 $transition: all 0.4s;
 $transitionLong: all 1s;
 $displayWidth: 40em;
+$aboutWidth: $displayWidth/2;
 $cardOpacity: 0.7;
 
 $white: #fff;
 $bgHighlight: #16374a;
+$gold: #c8a461;
 
 @mixin circle($width) {
 	height:$width; width: $width;

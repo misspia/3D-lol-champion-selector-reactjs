@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import SelectionPanel from './components/SelectionPanel';
-import './styles/main.scss';
 import './icons/stats/styles.css';
+import './icons/roles/styles.css';
+import './styles/main.scss';
+import SelectionPanel from './components/SelectionPanel';
+
 
 ReactDOM.render(
   <SelectionPanel />,
