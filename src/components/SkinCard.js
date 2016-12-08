@@ -12,12 +12,14 @@ class SkinCard extends React.Component{
 	render(){
 		return(
 			<li className="skin-card"
-				key={this.props.key}
+				
 				onClick={this.props.onClick}>
-				<img alt={this.props.key} src={this.props.imgSrc}/>
+				<img alt={this.props.alt} src={this.props.imgSrc}/>
 			</li>
 		)
 	}
 }
 
 export default SkinCard;
+
+// key={this.props.key}

@@ -21,16 +21,12 @@ class ChampionDisplay extends React.Component{
 		this.setState({skinId: 0, skinIndex:0})
 	}
 	updateSkin(skinId, index ){
-		this.state.skinIndex = index
-		this.setState({ skinId: skinId })
+		this.setState({ skinId: skinId, skinIndex: index }) // this.state.skinIndex = index
 	}
 	render(){
 		let champId = this.props.champ,
-			champions = this.state.champions
-		let champion = {
-			key: champions[champId].key,
-			skins: champions[champId].skins
-		}
+			champion = this.state.champions[champId]
+
 		let skins = []
 		for(var i = 0; i < champion.skins.length; i++) {
 			let skinId = champion.skins[i].num,
@@ -40,11 +36,11 @@ class ChampionDisplay extends React.Component{
 				<SkinCard  champId={champId} 
 							onClick={this.updateSkin.bind(null, skinId, i)}
 							key={key}
-							imgSrc={img}/>
+							imgSrc={img} alt={key}/>
 			)
 		}
 		return(
-			<ChampionDisplayContainer champKey={champions[champId].key}  skinId={this.state.skinId}>	
+			<ChampionDisplayContainer champKey={champion.key}  skinId={this.state.skinId}>	
 				<li className="col center container-data">
 					<ChampionDisplayData champId={champId} skinIndex={this.state.skinIndex}/>
 				</li>
