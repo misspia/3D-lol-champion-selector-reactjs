@@ -1,6 +1,7 @@
 {
-  "name": "app",
+  "name": "3d-lol-champion-selector-reactjs",
   "version": "0.1.0",
+  "homepage": "https://misspia.github.io/3D-lol-champion-selector-reactjs",
   "private": true,
   "devDependencies": {
     "autoprefixer": "6.5.1",
@@ -16,6 +17,7 @@
     "create-react-app-sass": "^1.1.0",
     "cross-spawn": "4.0.2",
     "css-loader": "0.25.0",
+    "cssnext": "^1.8.4",
     "detect-port": "1.0.1",
     "dotenv": "2.0.0",
     "eslint": "3.8.1",
@@ -32,6 +34,11 @@
     "filesize": "3.3.0",
     "find-cache-dir": "0.1.1",
     "fs-extra": "0.30.0",
+    "gh-pages": "^0.12.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-postcss": "^6.2.0",
+    "gulp-sass": "^2.3.2",
     "gzip-size": "3.0.0",
     "html-webpack-plugin": "2.24.0",
     "http-proxy-middleware": "0.17.2",
@@ -41,6 +48,7 @@
     "object-assign": "4.1.0",
     "path-exists": "2.1.0",
     "postcss-loader": "1.0.0",
+    "precss": "^1.4.0",
     "promise": "7.1.1",
     "react-dev-utils": "^0.3.0",
     "recursive-readdir": "2.1.0",
@@ -54,13 +62,7 @@
     "webpack": "1.13.2",
     "webpack-dev-server": "1.16.2",
     "webpack-manifest-plugin": "1.1.0",
-    "whatwg-fetch": "1.0.0",
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^3.1.1",
-    "gulp-postcss": "^6.2.0",
-    "gulp-sass": "^2.3.2",
-    "precss": "^1.4.0",
-    "cssnext": "^1.8.4"
+    "whatwg-fetch": "1.0.0"
   },
   "dependencies": {
     "react": "^15.4.1",
@@ -70,7 +72,8 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js --env=jsdom"
+    "test": "node scripts/test.js --env=jsdom",
+    "deploy": "npm run build&&gh-pages -d build"
   },
   "jest": {
     "moduleFileExtensions": [
