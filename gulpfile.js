@@ -28,14 +28,13 @@ gulp.task('vendor-prefix', function () {
 });
 
 
-gulp.task('default', () =>
-    gulp.src('src/images/*')
-        .pipe(imagemin())
-        .pipe(gulp.dest('dist/images'))
-);
-
-gulp.task('image-min', function() {
+gulp.task('minify-splash', function() {
     return gulp.src('src/img/splash/*')
         .pipe(imagemin())
         .pipe(gulp.dest('src/img/splash'))
-    })
+})
+gulp.task('minify-preview', function() {
+    return gulp.src('src/img/preview/*')
+        .pipe(imagemin())
+        .pipe(gulp.dest('src/img/preview'))
+})
