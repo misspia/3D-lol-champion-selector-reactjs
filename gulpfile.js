@@ -6,6 +6,9 @@ var autoprefixer = require('autoprefixer');
 var cssnext = require('cssnext');
 var precss = require('precss');
 
+imagemin = require('gulp-imagemin');
+require('events').EventEmitter.prototype._maxListeners = 100;
+
 
 gulp.task('sass', function(){
   return gulp.src('src/styles/main.scss')
@@ -23,3 +26,16 @@ gulp.task('vendor-prefix', function () {
         .pipe(postcss(processors))
         .pipe(gulp.dest('src/styles'));
 });
+
+
+gulp.task('default', () =>
+    gulp.src('src/images/*')
+        .pipe(imagemin())
+        .pipe(gulp.dest('dist/images'))
+);
+
+gulp.task('image-min', function() {
+    return gulp.src('src/img/splash/*')
+        .pipe(imagemin())
+        .pipe(gulp.dest('src/img/splash'))
+    })
