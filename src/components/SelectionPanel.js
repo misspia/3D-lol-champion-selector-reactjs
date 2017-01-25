@@ -25,12 +25,14 @@ class SelectionPanel extends React.Component{
 					champName = champions[champ].name
 
 				championsList.push(
+					
 					<li className="card col center align-center"
 						key={champKey} 
 						value={champId}>
-						<img src={champImg} alt={champKey}/>
-						<span>{champName}</span>
+							<img src={champImg} alt={champKey}/>
+							<span>{champName}</span>
 					</li>
+					
 				)
 			}
 		}
