@@ -3,10 +3,9 @@
 @import 'base/layout';
 @import 'base/variables';
 
-@import 'components/SelectionPanel';
-// @import 'components/ChampionDisplay';
+@import 'components/SelectionView';
 @import 'components/ChampionDisplayContainer';
-@import 'components/ChampionDisplayData';
+@import 'components/ChampionBanner';
 @import 'components/SkinCard';
 @import 'components/StatTable';
 @import 'components/NavItem';

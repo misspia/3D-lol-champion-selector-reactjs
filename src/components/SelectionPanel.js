@@ -1,46 +1,40 @@
 import React from 'react';
-import ConnectDisplayPanel from './ConnectDisplayPanel';
 import championsData from '../json/allChampions.json';
+import ChampionBanner from './ChampionBanner';
 
 class SelectionPanel extends React.Component{
 	constructor(){
 		super()
 		this.state = {
-			champions: []
+			selectedId: 1,
+			champions: [],
+			skin:0
 		}
 	}
 	componentWillMount(){
-		this.setState({champions: championsData})
+		this.setState({champions: championsData.data})
+	}
+	selectItem(selectedId){
+		this.setState({selectedId})
 	}
 	render(){
-		let champions = this.state.champions.data
-		
-		let championsList = []
+		let fn = child => React.cloneElement(child, {
+			onClick: this.selectItem.bind(this, child.props.value)
+		})
+		let items = React.Children.map(this.props.children, fn)
 
-		for(var champ in champions){
-			if ({}.hasOwnProperty.call(champions, champ)){
-				let champId = champ,
-					champImg = require("../img/preview/champ-" + champions[champ].key + "_0.png"),
-					champKey = champions[champ].key,
-					champName = champions[champ].name
-
-				championsList.push(
-					
-					<li className="card col center align-center"
-						key={champKey} 
-						value={champId}>
-							<img src={champImg} alt={champKey}/>
-							<span>{champName}</span>
-					</li>
-					
-				)
-			}
-		}
 		return (
-			<ConnectDisplayPanel>
-				{championsList}	
-			</ConnectDisplayPanel>
-		)
+			<ul className="col center">
+				<li className="col center align-center container-champion-display">
+					<ChampionBanner champ={this.state.selectedId}/>
+				</li>
+				<li className="container-selection-panel">
+					<ul className="row center perspective-container">
+		       			{items}
+					</ul>
+				</li>
+			</ul>
+		)	
 	}
 }
 
